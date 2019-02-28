@@ -5,6 +5,15 @@ For all certificates, stores, and keys, the password is 'password'
 
 ## How to generate them
 
+### Prepare the directory
+```
+cd <path/to/rootCA>
+mkdir certs crl newcerts private
+chmod 700 private
+touch index.txt
+echo 1000 > serial
+```
+
 ### Create the root key
 ```
 openssl genrsa -aes256 -out private/ca.key.pem 4096
@@ -38,4 +47,4 @@ openssl x509 -noout -text -in certs/ca.cert.pem
 
 
 ## References
-[OpenSSL Certificate Authority](https://jamielinux.com/docs/openssl-certificate-authority/introduction.html)
+[OpenSSL Certificate Authority - Create root pair](https://jamielinux.com/docs/openssl-certificate-authority/introduction.html)
